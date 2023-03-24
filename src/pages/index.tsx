@@ -16,7 +16,7 @@ import JsonSchema from 'components/JsonSchema'
 
 import client from 'graphql/client'
 import GET_LANDING_PAGE from 'graphql/queries/getLandingPage'
-import { LandingPageProps, LogoProps } from 'types/api'
+import { HeaderProps, LandingPageProps, LogoProps } from 'types/api'
 
 type Teste = {
   landingPage: {
@@ -27,15 +27,17 @@ type Teste = {
             attributes: LogoProps
           }
         }
+        header: HeaderProps
       }
     }
   }
 }
 
-const Index = ({ logo }: LandingPageProps) => {
+const Index = ({ logo, header }: LandingPageProps) => {
+  console.log(header)
   return (
     <>
-      <SectionHero logo={logo} />
+      <SectionHero logo={logo} header={header} />
       <SectionAboutProject />
       <SectionTech />
       <SectionConcepts />
@@ -54,10 +56,13 @@ const Index = ({ logo }: LandingPageProps) => {
 export const getStaticProps: GetStaticProps = async () => {
   const { landingPage } = await client.request<Promise<Teste>>(GET_LANDING_PAGE)
   const logo = landingPage.data.attributes.logo.data.attributes
-  console.log(logo)
+  const header = landingPage.data.attributes.header
+
+  console.log(landingPage.data.attributes.header.image.data.attributes.url)
 
   const teste: LandingPageProps = {
-    logo: logo
+    logo: logo,
+    header: header
   }
 
   return {
