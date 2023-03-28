@@ -49,6 +49,7 @@ const GET_LANDING_PAGE = /* GraphQL */ `
     sectionTech {
       title
       techIcon {
+        title
         icon {
           data {
             attributes {
@@ -56,6 +57,14 @@ const GET_LANDING_PAGE = /* GraphQL */ `
             }
           }
         }
+      }
+    }
+  }
+
+  fragment sectionConcepts on LandingPage {
+    sectionConcepts {
+      title
+      concepts {
         title
       }
     }
@@ -69,6 +78,7 @@ const GET_LANDING_PAGE = /* GraphQL */ `
           ...header
           ...sectionAboutProject
           ...sectionTech
+          ...sectionConcepts
         }
       }
     }
