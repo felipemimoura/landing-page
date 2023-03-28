@@ -22,6 +22,7 @@ import {
   LogoProps,
   SectionAboutProjectProps,
   SectionConceptsProps,
+  SectionModuleProps,
   SectionTechProps
 } from 'types/api'
 
@@ -38,6 +39,7 @@ type Teste = {
         sectionAboutProject: SectionAboutProjectProps
         sectionTech: SectionTechProps
         sectionConcepts: SectionConceptsProps
+        sectionModule: SectionModuleProps
       }
     }
   }
@@ -48,7 +50,8 @@ const Index = ({
   header,
   sectionAboutProject,
   sectionTech,
-  sectionConcept
+  sectionConcept,
+  sectionModule
 }: LandingPageProps) => {
   return (
     <>
@@ -56,7 +59,7 @@ const Index = ({
       <SectionAboutProject {...sectionAboutProject} />
       <SectionTech {...sectionTech} />
       <SectionConcepts {...sectionConcept} />
-      <SectionModules />
+      <SectionModules {...sectionModule} />
       <SectionAgenda />
       <PricingBox />
       <SectionAboutUs />
@@ -75,13 +78,15 @@ export const getStaticProps: GetStaticProps = async () => {
   const sectionAboutProject = landingPage.data.attributes.sectionAboutProject
   const sectionTech = landingPage.data.attributes.sectionTech
   const sectionConcepts = landingPage.data.attributes.sectionConcepts
+  const sectionModule = landingPage.data.attributes.sectionModule
 
   const teste: LandingPageProps = {
     logo: logo,
     header: header,
     sectionAboutProject: sectionAboutProject,
     sectionTech: sectionTech,
-    sectionConcept: sectionConcepts
+    sectionConcept: sectionConcepts,
+    sectionModule: sectionModule
   }
 
   return {
