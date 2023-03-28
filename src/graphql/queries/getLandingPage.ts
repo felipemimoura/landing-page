@@ -88,6 +88,19 @@ const GET_LANDING_PAGE = /* GraphQL */ `
     }
   }
 
+  fragment sectionPrincingBox on LandingPage {
+    princingBox {
+      totalPrice
+      numberInstallments
+      priceInstallment
+      benefits
+      button {
+        label
+        url
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       data {
@@ -99,6 +112,7 @@ const GET_LANDING_PAGE = /* GraphQL */ `
           ...sectionConcepts
           ...sectionModule
           ...sectionAgenda
+          ...sectionPrincingBox
         }
       }
     }
