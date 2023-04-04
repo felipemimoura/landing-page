@@ -32,6 +32,7 @@ const PricingBox = ({ totalPrice, button }: SectionPricingBoxProps) => (
     </S.BenefitsList>
 
     <Button href={button.url} onClick={onClick} withPrice>
+
       <p>Comprar o curso</p>
       <div>
         <S.ButtonDiscountPrice>R$ 79,90</S.ButtonDiscountPrice>

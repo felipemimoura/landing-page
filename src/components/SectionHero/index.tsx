@@ -45,4 +45,5 @@ const SectionHero = ({ logo, header }: Props) => {
   )
 }
 
+
 export default SectionHero
