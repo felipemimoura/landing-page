@@ -88,6 +88,16 @@ const GET_LANDING_PAGE = /* GraphQL */ `
     }
   }
 
+  fragment sectionFaq on LandingPage {
+    sectionFaq {
+      title
+      questions {
+        question
+        answer
+      }
+    }
+  }
+
   fragment sectionPrincingBox on LandingPage {
     princingBox {
       totalPrice
@@ -159,6 +169,7 @@ const GET_LANDING_PAGE = /* GraphQL */ `
           ...sectionPrincingBox
           ...sectionAboutUs
           ...sectionReviews
+          ...sectionFaq
         }
       }
     }

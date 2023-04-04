@@ -12,7 +12,6 @@ type Props = {
 }
 
 const ReviewCard: React.FC<Props> = ({ id, name, image, description }) => {
-  console.log(image)
   useEffect(() => {
     const texts = document.querySelectorAll('p.description')
 
